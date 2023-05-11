@@ -1,5 +1,6 @@
 package org.kozlov.db.entity;
 
+import jakarta.persistence.GeneratedValue;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,9 +17,8 @@ import java.util.UUID;
 public class TargetEntity {
 
     @Id
+    @GeneratedValue
     private UUID id;
-
-    private UUID targetId;
 
     private Date date;
 
