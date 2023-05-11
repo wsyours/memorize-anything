@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+    id "org.flywaydb.flyway" version "9.15.1"
+    id 'org.springframework.boot' version '3.0.4'
+    id("org.hibernate.orm") version "6.2.0.CR3"
+    id("io.freefair.lombok") version "8.0.1"
+}
+
+apply plugin: 'io.spring.dependency-management'
+group 'org.kozlov'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation 'org.postgresql:postgresql:42.2.27'
+    implementation group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
+    implementation group: 'org.springframework.data', name: 'spring-data-jpa', version: '3.0.3'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-gradle-plugin', version: '3.0.4'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '3.0.4'
+    implementation group: 'com.theokanning.openai-gpt3-java', name: 'service', version: '0.12.0'
+    implementation group: 'org.mapstruct', name: 'mapstruct', version: '1.5.4.Final'
+    implementation group: 'org.hibernate', name: 'hibernate-core', version: '6.2.2.Final', ext: 'pom'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc', version: '3.0.6'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '3.0.6'
+
+}
+
+flyway {
+    url = 'jdbc:postgresql://localhost:5438/postgres'
+    user = 'postgres'
+    password = ''
+    schemas = ['postgres']
+    locations = ['filesystem:db/migration']
+}
+
+
+test {
+    useJUnitPlatform()
+}
