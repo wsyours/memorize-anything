@@ -13,16 +13,14 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class MemorizeService {
-
-    //private final TargetRepository targretRepostiory;
     private final SatelliteRepository satelliteRepository;
     private final SatelliteMapper satelliteMapper;
+
     private final TargetMapper targetMapper;
 
     public List<Satellite> putSatellites(List<SatelliteEntity> satelliteEntities) {
-         return satelliteRepository.saveAll(satelliteEntities)
-                 .stream().map(satelliteMapper::fromEntity)
-                 .toList();
+        return satelliteRepository.saveAll(satelliteEntities)
+                .stream().map(satelliteMapper::fromEntity)
+                .toList();
     }
-
 }

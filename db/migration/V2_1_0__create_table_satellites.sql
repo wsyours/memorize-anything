@@ -5,6 +5,5 @@ CREATE TABLE "satellites" (
                               "piece_to_help" varchar,
                               "description" varchar,
                               "type" varchar,
-                              "status" varchar,
-                              PRIMARY KEY ("id")
+                              "status" varchar
 );

@@ -4,6 +4,5 @@ CREATE TABLE "targets" (
                            "piece_to_memorize" varchar,
                            "description" varchar,
                            "type" varchar,
-                           "status" varchar,
-                           PRIMARY KEY ("id")
+                           "status" varchar
 );
